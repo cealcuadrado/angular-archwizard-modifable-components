@@ -1,0 +1,152 @@
+<!-- Cambios a los componentes -->
+
+<div class="row">
+  <div class="col-12 col-lg-4">
+    <div class="form-group text-center">
+      <label>navbarLocation</label>
+      <select [(ngModel)]="navbarLocation" class="form-control">
+        <option *ngFor="let location of availableLocations">
+          {{location}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="col-12 col-lg-4">
+    <div class="form-group text-center">
+      <label>navbarLayout</label>
+      <select [(ngModel)]="navbarLayout" class="form-control">
+        <option *ngFor="let layout of availableLayouts">
+          {{layout}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="col-12 col-lg-4">
+    <div class="form-group text-center">
+      <label>navbarDirection</label>
+      <select [(ngModel)]="navbarDirection" class="form-control">
+        <option *ngFor="let direction of availableDirections">
+          {{direction}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="col-12 col-lg-4">
+    <div class="form-group text-center">
+      <label>defaultStepIndex</label>
+      <input type="number" [(ngModel)]="defaultStepIndex" min="0" max="3" class="form-control"/>
+    </div>
+  </div>
+  <div class="col-12 col-lg-4">
+    <div class="form-group text-center">
+      <label>disableNavigationBar</label>
+      <br>
+       <ui-switch
+        uncheckedLabel="false"
+        checkedLabel="true"
+        checkedTextColor="white"
+        [(ngModel)]="disableNavigationBar">
+       </ui-switch>
+    </div>
+  </div>
+</div>
+
+<hr/>
+
+<!-- Wizard -->
+
+<aw-wizard
+  [navBarLocation]="navbarLocation"
+  [navBarLayout]="navbarLayout"
+  [navBarDirection]="navbarDirection"
+  [defaultStepIndex]="defaultStepIndex"
+  [disableNavigationBar]="disableNavigationBar">
+  <aw-wizard-step stepTitle="Step 1">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in iaculis ante. Vestibulum convallis et nisl sed
+      aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nibh lacus, volutpat eget finibus eget,
+      suscipit molestie magna. In ac eros dignissim, eleifend ligula interdum, efficitur nunc. Pellentesque at lacinia
+      orci. Vestibulum et erat eu mi efficitur condimentum.</p>
+    <p>Cras pellentesque porttitor tortor, a malesuada ante consectetur ac. Vestibulum luctus neque in diam eleifend,
+      sed volutpat nulla sagittis. Aliquam erat volutpat. Integer porta lectus vel congue dapibus. Integer suscipit,
+      felis consectetur fringilla porttitor, justo est vestibulum tortor, a iaculis orci lectus vel nisl. Quisque in
+      sapien id odio malesuada pulvinar. Fusce ac interdum nisi, quis hendrerit ex. Cras rutrum dui ut laoreet feugiat.
+    </p>
+    <p>Morbi sed lorem ut ligula pulvinar aliquam. Vestibulum non faucibus orci, vel pharetra orci. Proin eget eros
+      tempor turpis dapibus dapibus vel non quam. Phasellus congue, libero vel scelerisque suscipit, magna leo tincidunt
+      elit, pharetra euismod sem tellus at nunc. Sed laoreet purus in est tristique, vel vehicula urna rhoncus. Sed et
+      erat eget ante suscipit ornare. Donec arcu metus, vestibulum vestibulum nibh vel, vehicula convallis lacus. Duis
+      aliquam vehicula elit, eu ultrices urna malesuada vitae. Nullam massa magna, porttitor non pharetra sit amet,
+      posuere vel orci. In commodo, leo ut eleifend porta, dui ex congue nisl, quis cursus mi nisl nec magna. Phasellus
+      tortor urna, hendrerit ut consequat eget, rhoncus vitae metus. Nulla varius, arcu non elementum iaculis, dolor
+      nibh tempus tellus, iaculis tristique quam velit id ex. Quisque gravida eu leo nec tristique. Nulla interdum
+      fermentum enim, in gravida sem varius a. Ut placerat metus at ipsum accumsan sollicitudin. Etiam urna turpis,
+      dictum id sapien a, vehicula fringilla justo.</p>
+    <hr />
+    <div class="d-flex justify-content-end align-items-center">
+      <button class="btn btn-success" awNextStep>
+        Siguiente paso <i class="fas fa-arrow-right fa-fw"></i>
+      </button>
+    </div>
+  </aw-wizard-step>
+  <aw-wizard-step stepTitle="Step 2">
+    <p>Nullam laoreet nulla eu lectus ornare, sed porttitor est blandit. Aenean maximus finibus quam nec interdum.
+      Aliquam erat volutpat. Ut ultrices metus elit, eget ornare lectus ullamcorper a. Phasellus et consectetur nisl, eu
+      gravida est. Proin rutrum non enim et congue. Etiam cursus eros varius eleifend tincidunt. Etiam in laoreet quam.
+      Maecenas non tortor ligula. Curabitur est nulla, tristique vitae dolor ac, sodales iaculis nulla. Maecenas nulla
+      est, venenatis in consectetur at, vestibulum eu neque. Nunc quis semper nisi, in elementum ex. Phasellus congue,
+      massa lobortis sollicitudin aliquam, eros lorem convallis eros, vitae imperdiet magna nunc vel orci. Vestibulum
+      hendrerit orci purus, blandit sollicitudin sapien faucibus et.</p>
+    <p>Nunc ac justo velit. Nulla vitae nibh sagittis, efficitur purus ac, commodo mauris. Fusce pellentesque, lorem
+      eget cursus ultricies, neque quam pulvinar quam, in molestie elit elit et lacus. Nam elementum hendrerit lacus at
+      suscipit. Donec elementum est vel velit facilisis fermentum. Etiam feugiat, ligula sed facilisis viverra, elit
+      elit mollis augue, id lacinia enim turpis et lectus. Quisque a feugiat odio. Curabitur sem leo, viverra vitae sem
+      vitae, auctor dictum tortor. Maecenas varius nisl non turpis placerat, non finibus urna sollicitudin. Sed pretium
+      at felis at lobortis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+      egestas. Proin a purus tempus, pellentesque justo a, pharetra quam. Maecenas eget dapibus arcu, ac imperdiet enim.
+      Praesent elementum dolor elit. Mauris finibus lectus id pharetra tristique.</p>
+    <p>Cras luctus ullamcorper mi. Curabitur accumsan convallis vestibulum. Sed nec placerat nibh, eget tincidunt
+      sapien. Quisque elementum eu odio vitae aliquam. Mauris eu orci ullamcorper, pellentesque libero sit amet,
+      vulputate lorem. Nullam eget augue nisl. Integer odio mi, commodo at suscipit sed, scelerisque eu arcu. Proin enim
+      libero, ultricies sit amet condimentum egestas, aliquam eget mauris. Etiam id feugiat nisl. Suspendisse vitae
+      ligula vulputate, facilisis lorem at, convallis elit. Vestibulum mollis leo ac efficitur maximus. Quisque vel nisi
+      convallis, vestibulum felis in, aliquam augue. Nulla lectus eros, consequat ac placerat ac, vehicula sed nulla.
+      Sed sit amet tempor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+    <hr />
+    <div class="d-flex justify-content-end align-items-center">
+      <div class="btn-group">
+        <button class="btn btn-danger" awPreviousStep>
+          <i class="fas fa-arrow-left fa-fw"></i> Paso anterior
+        </button>
+        <button class="btn btn-success" awNextStep>
+          Siguiente paso <i class="fas fa-arrow-right fa-fw"></i>
+        </button>
+      </div>
+    </div>
+  </aw-wizard-step>
+  <aw-wizard-step stepTitle="Step 3">
+    <p>Pellentesque convallis magna dui, id ornare arcu venenatis ac. Vestibulum sagittis dictum enim gravida posuere.
+      Vivamus egestas nisl quam, ut interdum sem gravida convallis. Sed at tellus tellus. Phasellus nec scelerisque
+      turpis. Sed vitae ex in libero convallis egestas. Morbi massa turpis, convallis a orci eu, volutpat eleifend nisi.
+      Curabitur commodo condimentum arcu, vel lacinia orci tincidunt in. Duis eu elit accumsan massa rutrum feugiat.
+      Praesent eget imperdiet elit. Donec mattis auctor dui, vitae tincidunt tellus pulvinar sit amet. Mauris ut
+      ultricies urna, ac hendrerit velit.</p>
+    <p>Suspendisse tempor interdum arcu non ornare. Integer suscipit fermentum egestas. Vivamus lobortis leo quis ex
+      condimentum viverra. Suspendisse at nisl posuere, dapibus turpis a, bibendum velit. Donec convallis tellus dolor,
+      sed mollis nulla fermentum a. Aenean non nunc id augue pretium aliquet a nec dolor. In at orci risus. Mauris non
+      sapien elit.</p>
+    <p>Ut a interdum lectus. Donec aliquet dictum consectetur. Praesent sagittis tempor dui, eget tincidunt ex fermentum
+      non. Mauris mattis dolor et massa ullamcorper, eu eleifend elit blandit. Aenean elit sapien, maximus ut
+      pellentesque tempor, ornare sed purus. Etiam congue risus ut eleifend volutpat. Vivamus volutpat velit et nunc
+      euismod, commodo hendrerit augue tincidunt. Vivamus ac ornare purus, sed ullamcorper urna. Nulla ex dui,
+      ullamcorper at placerat eu, dignissim at purus. Sed lorem lacus, pretium scelerisque tristique vitae, faucibus
+      vitae ex. Praesent at ultricies sapien. Praesent tincidunt ac sem vitae auctor. Aliquam blandit tincidunt diam, id
+      lobortis ipsum consectetur mattis. Sed et felis fringilla, posuere quam vitae, sollicitudin nisi.</p>
+    <hr />
+    <div class="d-flex justify-content-end align-items-center">
+      <button class="btn btn-danger" awPreviousStep>
+        <i class="fas fa-arrow-left fa-fw"></i> Paso anterior
+      </button>
+    </div>
+  </aw-wizard-step>
+</aw-wizard>
+
